@@ -1,0 +1,29 @@
+class Complex {
+   private:
+    double x = 0.0;
+    double y = 0.0;
+
+   public:
+    friend ostream& operator<<(ostream& output, const Complex& D)
+    {
+        output << D.x << "i + " << D.y << "j";
+        return output;
+    }
+    friend istream& operator>>(istream& input, Complex& D)
+    {
+        input >> D.x >> D.y;
+        return input;
+    }
+};
+
+
+copy this class inside your deque code
+
+NOTE: make return type of push_back, push_front, pop_back, pop_front as bool.Return true if operation is performed successfully, else return false.
+
+Input Format:
+Design an infinitely running menu-driven main function. Each Time the user inputs an integer corresponding to the serial number of the operation listed in the assignment. Then, take necessary arguments related to the selected operation and execute the respective method. Finally, the program must exit with status code 0, when 0 is provided as a choice.
+
+Output Format:
+- each output should be in new line
+- use 'boolalpha' to output booleans, eg: cout << boolalpha << dq.pop_front() << endl;
