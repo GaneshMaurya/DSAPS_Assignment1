@@ -10,7 +10,6 @@ private:
 public:
     priority_queue_min()
     {
-        int length = 0;
     }
 
     void push(int el)
@@ -25,9 +24,12 @@ public:
             if (arr[i] < arr[par])
             {
                 swap(arr[i], arr[par]);
+                i = par;
             }
-
-            i = par;
+            else
+            {
+                break;
+            }
         }
 
         length++;
@@ -48,19 +50,24 @@ public:
             swap(arr[0], arr[length - 1]);
             length--;
             int i = 0;
-            while (i < (length - 1) / 2)
+            while (2 * i + 1 < length)
             {
                 int c1 = 2 * i + 1;
                 int c2 = 2 * i + 2;
-                if (arr[c1] < arr[c2])
+
+                int temp = c1;
+                if (c2 < length)
                 {
-                    swap(arr[i], arr[c1]);
-                    i = c1;
+                    temp = arr[c1] > arr[c2] ? c1 : c2;
+                }
+                if (arr[i] > arr[temp])
+                {
+                    swap(arr[i], arr[temp]);
+                    i = temp;
                 }
                 else
                 {
-                    swap(arr[i], arr[c2]);
-                    i = c2;
+                    break;
                 }
             }
         }
@@ -95,7 +102,6 @@ private:
 public:
     priority_queue_max()
     {
-        int length = 0;
     }
 
     void push(int el)
@@ -110,9 +116,12 @@ public:
             if (arr[i] > arr[par])
             {
                 swap(arr[i], arr[par]);
+                i = par;
             }
-
-            i = par;
+            else
+            {
+                break;
+            }
         }
 
         length++;
@@ -133,19 +142,24 @@ public:
             swap(arr[0], arr[length - 1]);
             length--;
             int i = 0;
-            while (i < (length - 1) / 2)
+            while (2 * i + 1 < length)
             {
                 int c1 = 2 * i + 1;
                 int c2 = 2 * i + 2;
-                if (arr[c1] > arr[c2])
+
+                int temp = c1;
+                if (c2 < length)
                 {
-                    swap(arr[i], arr[c1]);
-                    i = c1;
+                    temp = arr[c1] < arr[c2] ? c1 : c2;
+                }
+                if (arr[i] < arr[temp])
+                {
+                    swap(arr[i], arr[temp]);
+                    i = temp;
                 }
                 else
                 {
-                    swap(arr[i], arr[c2]);
-                    i = c2;
+                    break;
                 }
             }
         }
@@ -173,7 +187,6 @@ public:
 
 int main()
 {
-
     int n, k;
     cin >> n >> k;
 
@@ -225,6 +238,12 @@ int main()
         st++;
     }
 
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << runningMedian[i] << " ";
+    // }
+    // cout << endl;
+
     int it = 0;
     double lastKmedian[n - k + 1];
     st = 0;
@@ -269,16 +288,21 @@ int main()
 
             j++;
         }
-        // cout << "- " << median2 << endl;
         lastKmedian[st] = median2;
         st++;
         it++;
     }
 
+    // for (int i = 0; i < n - k + 1; i++)
+    // {
+    //     cout << lastKmedian[i] << " ";
+    // }
+    // cout << endl;
+
     int count = 0;
     for (int i = k; i < n; i++)
     {
-        double temp = runningMedian[i] + lastKmedian[i - k];
+        int temp = runningMedian[i] + lastKmedian[i - k];
         if (temp <= arr[i])
         {
             count++;
