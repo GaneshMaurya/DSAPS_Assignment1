@@ -1,0 +1,76 @@
+// Windows
+// {
+// 	"version": "2.0.0",
+// 	"tasks": [
+// 		{
+// 			"label": "compile",
+// 			"type": "shell",
+// 			"command": "g++",
+// 			"args": [
+// 				"-std=c++17",
+// 				"-o",
+// 				"${fileBasenameNoExtension}",
+// 				"${file}"
+// 			],
+// 			"presentation": {
+// 				"reveal": "never",
+// 				"close": true
+// 			},
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": false
+// 			}
+// 		},
+// 		{
+// 			"label": "compile and run",
+// 			"type": "shell",
+// 			"command": "g++ -std=c++17 -o \"${fileBasenameNoExtension}\" \"${file}\" && .\\${fileBasenameNoExtension} < input.txt > output.txt",
+// 			"presentation": {
+// 				"reveal": "never",
+// 				"close": true
+// 			},
+// 			"group": {
+// 				"kind": "build",
+// 				"isDefault": true
+// 			}
+// 		}
+// 	]
+// }
+// Ubuntu
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "compile",
+			"type": "shell",
+			"command": "g++",
+			"args": [
+				"-std=c++17",
+				"-o",
+				"${fileBasenameNoExtension}",
+				"${file}"
+			],
+			"presentation": {
+				"reveal": "never",
+				"close": true
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			}
+		},
+		{
+			"label": "compile and run",
+			"type": "shell",
+			"command": "g++ -std=c++17 -o \"${fileBasenameNoExtension}\" \"${file}\" && ./${fileBasenameNoExtension} < input.txt > output.txt",
+			"presentation": {
+				"reveal": "never",
+				"close": true
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
