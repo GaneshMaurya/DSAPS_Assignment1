@@ -203,7 +203,7 @@ int main(int argc, char *argv[])
         initializeMatrices(energyImage, middleImage, dupMatrix, colorMatrix);
 
         reducedWidth--;
-        cout << "Width: " << reducedWidth << endl;
+        cout << "Vertical Seams remaining: " << reducedWidth << endl;
     }
 
     while (reducedHeight > 0)
@@ -321,7 +321,7 @@ int main(int argc, char *argv[])
         initializeMatrices(energyImage, middleImage, dupMatrix, colorMatrix);
 
         reducedHeight--;
-        cout << "Height: " << reducedHeight << endl;
+        cout << "Horizontal Seams remaining: " << reducedHeight << endl;
     }
 
     Mat finalImage = createFinalImage(colorMatrix, imgHeight, imgWidth);

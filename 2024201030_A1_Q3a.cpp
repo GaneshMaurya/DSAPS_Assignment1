@@ -92,14 +92,14 @@ public:
         return length == 0;
     }
 
-    void printAll()
-    {
-        for (int i = 0; i < size(); i++)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
-    }
+    // void printAll()
+    // {
+    //     for (int i = 0; i < size(); i++)
+    //     {
+    //         cout << arr[i] << " ";
+    //     }
+    //     cout << endl;
+    // }
 };
 
 class priority_queue_max
@@ -193,14 +193,14 @@ public:
         return length == 0;
     }
 
-    void printAll()
-    {
-        for (int i = 0; i < size(); i++)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
-    }
+    // void printAll()
+    // {
+    //     for (int i = 0; i < size(); i++)
+    //     {
+    //         cout << arr[i] << " ";
+    //     }
+    //     cout << endl;
+    // }
 };
 
 int main()

@@ -33,11 +33,6 @@ public:
         root = new Node();
     }
 
-    ~Trie()
-    {
-        
-    }
-
     void insert(string word)
     {
         Node *node = root;
