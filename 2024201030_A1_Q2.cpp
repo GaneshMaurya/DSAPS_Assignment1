@@ -20,16 +20,6 @@ struct Node
     {
         return links[c - 'a'];
     }
-
-    void setEnd()
-    {
-        flag = true;
-    }
-
-    bool end()
-    {
-        return flag;
-    }
 };
 
 class Trie
@@ -41,6 +31,11 @@ public:
     Trie()
     {
         root = new Node();
+    }
+
+    ~Trie()
+    {
+        
     }
 
     void insert(string word)
@@ -55,7 +50,7 @@ public:
             node = node->getNext(word[i]);
         }
 
-        node->setEnd();
+        node->flag = true;
     }
 
     int spellCheck(string word)
@@ -70,7 +65,7 @@ public:
             node = node->getNext(word[i]);
         }
 
-        if (node->end() == true)
+        if (node->flag == true)
         {
             return 1;
         }
@@ -82,7 +77,7 @@ public:
 
     void dfs(Node *node, string &s, vector<string> &words)
     {
-        if (node->end() == true)
+        if (node->flag == true)
         {
             words.push_back(s);
         }
@@ -236,6 +231,7 @@ int main()
             break;
 
         default:
+            cout << "Wrong choice given please enter only 1, 2, 3\n";
             break;
         }
     }

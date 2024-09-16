@@ -41,6 +41,11 @@ public:
         {
             return arr[0];
         }
+        else
+        {
+            cout << "Error. The priority queue is empty\n";
+            return 0;
+        }
     }
 
     void pop()
@@ -58,7 +63,7 @@ public:
                 int temp = c1;
                 if (c2 < length)
                 {
-                    temp = arr[c1] > arr[c2] ? c1 : c2;
+                    temp = arr[c1] < arr[c2] ? c1 : c2;
                 }
                 if (arr[i] > arr[temp])
                 {
@@ -70,6 +75,10 @@ public:
                     break;
                 }
             }
+        }
+        else
+        {
+            cout << "Error. The priority queue is empty\n";
         }
     }
 
@@ -133,6 +142,11 @@ public:
         {
             return arr[0];
         }
+        else
+        {
+            cout << "Error. The priority queue is empty\n";
+            return 0;
+        }
     }
 
     void pop()
@@ -150,7 +164,7 @@ public:
                 int temp = c1;
                 if (c2 < length)
                 {
-                    temp = arr[c1] < arr[c2] ? c1 : c2;
+                    temp = arr[c1] > arr[c2] ? c1 : c2;
                 }
                 if (arr[i] < arr[temp])
                 {
@@ -162,6 +176,10 @@ public:
                     break;
                 }
             }
+        }
+        else
+        {
+            cout << "Error. The priority queue is empty\n";
         }
     }
 
