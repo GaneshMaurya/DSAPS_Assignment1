@@ -91,41 +91,26 @@ public:
 
     void autocomplete(string word)
     {
-        string curr = "";
+        string curr = word;
         Node *node = root;
         for (int i = 0; i < word.size(); i++)
         {
             if (!node->contains(word[i]))
             {
+                cout << 0 << endl;
                 return;
             }
             node = node->getNext(word[i]);
-            curr += word[i];
         }
 
         vector<string> words;
-        for (int i = 0; i < 26; i++)
-        {
-            if (node->links[i] != NULL)
-            {
-                curr += ('a' + i);
-                Node *temp = node->getNext('a' + i);
-                dfs(temp, curr, words);
-                curr.pop_back();
-            }
-        }
+        dfs(node, curr, words);
 
-        if (words.size() > 0)
-        {
-            cout << 1 << endl;
-        }
-
+        cout << words.size() << endl;
         for (auto it : words)
         {
             cout << it << endl;
         }
-
-        return;
     }
 
     void autocorrect(string word)
@@ -152,12 +137,12 @@ public:
             int m = word.size();
 
             vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n + 1; i++)
             {
                 dp[i][0] = i;
             }
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < m + 1; i++)
             {
                 dp[0][i] = i;
             }
